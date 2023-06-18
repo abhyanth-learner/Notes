@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>Data Structure Day 1</title>
+    </head>
+    <body>
+        <h2>Bubble sort algorithm</h2>
+        <p>Go to console and write the following:</p>
+        <pre>
+            bubbleSort([ give array of your choice ])
+        </pre>
+        <script>
+            function bubbleSort(items) {
+                for(let i = 0; i < items.length; i ++) {
+                   
+                    for(let j = 0; j < items.length - i - 1 ; j++){
+                        if( items[j] > items[j+1]) {
+                            let temp = items[j];
+                            items[j] = items[j+1];
+                            items[j+1] = temp;
+                        }
+                    }
+                }
+                return items;
+            }
+        </script>
+        <hr>
+
+        <h2>Insertion sort algorithm</h2>
+        <p>Go to console and write the following:</p>
+        <pre>
+            insertionSort([ give array of your choice ])
+        </pre>
+        <script>
+            function insertionSort(arr){
+                let i, j, key;
+                for ( i = 1; i < arr.length; i++){
+                    key = arr[i];
+                    j = i - 1;
+                    while(j >= 0 && arr[j] > key){
+                        arr[j+1] = arr[j];
+                        j--;
+                    }
+                    arr[j+1] = key;
+                }
+                return arr;
+            }
+        </script>
+        <hr>
+
+        <h2>Linear Search algorithm</h2>
+        <p>Go to console and write the following:</p>
+        <pre>
+            linearSearch( [give_array_of_your_choice] , item_to_search)
+        </pre>
+        <script>
+            function linearSearch(arr, item) {
+                for (let i = 0; i < arr.length; i++){
+                    if (arr[i] == item){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        </script>
+        <hr>
+
+        <h2>Binary Search algorithm</h2>
+        <p>Go to console and write the following:</p>
+        <pre>
+            binarySearch( [give_array_of_your_choice] , item_to_search)
+        </pre>
+        <script>
+            function binarySearch(arr,item) {
+                var arrSort = bubbleSort(arr);
+                console.log('arr sorted : '+arrSort);
+                let left = 0, right = arrSort.length - 1;
+                while(right >= left){
+                    let mid = left + Math.floor((left + right) / 2 )
+                    if ( arrSort[mid] == item){
+                        return true;
+                    }
+                    else if (arrSort[mid] > item){
+                        right = mid - 1;
+                    }
+                    else{
+                        left = mid + 1;
+                    }
+                }
+                return 'Not Found';
+            }
+        </script>
+        <hr>
+
+        <h2>Set Operation using JavaScripts</h2>
+        <input type="button" value="Union" onclick="setUnion()">
+        <input type="button" value="Intersection" onclick="setIntersection()">
+        <input type="button" value="Minus A-B" onclick="setMinus()">
+        <input type="button" value="Minus B-A" onclick="setMinus1()">
+        <hr>
+        <script>
+            
+            var s1 = new Set([1,2,30,32,45,42]);
+            var s2 = new Set([1,5,2,6,73,42,2,1]);
+           
+            console.log('s1: ',s1);
+            console.log('s2: ',s2);
+            function setUnion() {
+                console.log('Union');
+                let s3 = new Set();
+                for ( let elem of s1){
+                    s3.add(elem);
+                }
+                for ( let elem of s2){
+                    s3.add(elem);
+                }
+                console.log('s1 U s2 = s3: ',s3);
+            }
+            function setIntersection() {
+                console.log('Intersection');
+                let s4 = new Set();
+                for (let elem of s1){
+                    if(s2.has(elem)){
+                        s4.add(elem);
+                    }
+                }
+                console.log('s1 A s2 = s4: ',s4);
+            }
+            function setMinus() {
+                console.log('Difference A-B');
+                let s5 = new Set();
+                for (let elem of s1){
+                    if(!s2.has(elem)){
+                        s5.add(elem);
+                    }
+                }
+                console.log('s1 A s2 = s5: ',s5);
+            }
+            function setMinus1() {
+                console.log('Difference B-A');
+                let s6 = new Set();
+                for (let elem of s2){
+                    if(!s1.has(elem)){
+                        s6.add(elem);
+                    }
+                }
+                console.log('s1 A s2 = s6: ',s6);
+            }
+            
+        </script>
+    </body>
+</html>

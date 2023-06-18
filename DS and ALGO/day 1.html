@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>Data Structure Day 1</title>
+    </head>
+    <body>
+        <h2>Linked List using JS</h2>
+        <hr>
+        Enter Data:
+        <input type="text" id="data">
+        <input type="button" value="Add" onclick="add()">
+        <input type="button" value="Remove" onclick="remove()">
+        <input type="button" value="Print" onclick="display()">
+        <p id="p1"></p>
+        <script>
+          class node{
+            constructor(value,next=null){
+                    this.value=value
+                    this.next=next
+            }
+          }
+          class linkedlist{
+            constructor(){
+                this.head=null
+                this.size=0
+            }
+            //insert first
+            //insert last
+            //insert at index
+            //get at index
+            //delete at index
+            //clear list
+            //print list
+          }
+        </script>
+
+        <!-- <hr>
+        <h2>Stack using JS</h2>
+        <hr>
+        Enter Data:
+        <input type="text" id="data1">
+        <input type="button" value="Add" onclick="addStack()">
+        <input type="button" value="Remove" onclick="removeStack()">
+        <input type="button" value="Peek" onclick="peekStack()">
+        <p id="p2"></p>
+        <p id="pop"></p>
+        <script>
+            var Stack = {
+                items: [],
+                length: 0,
+                push: function (value) {
+                    this.items.push(value);
+                    this.length++ ;
+                },
+                pop: function () {
+                    if (this.isEmpty()){
+                        return 'Stack Empty'
+                    } else {
+                        this.length --;
+                        return this.items.pop();
+                    }
+                },
+                peek: function() {
+                    if(this.isEmpty()){
+                        return -1;
+                    }
+                    else{
+                        return this.items[this.length - 1]
+                    }
+                },
+                isEmpty: function () {
+                    return this.items.length == 0;
+                    // return this.length == 0;
+                },
+            }
+
+            function addStack() {
+                let val = document.getElementById('data1').value;
+                Stack.push(val); 
+                document.getElementById('p2').innerText =  Stack.items.join(' -> ');
+            }
+            function removeStack() {
+                document.getElementById('pop').innerText = 'Removed: ' + Stack.pop();
+                document.getElementById('p2').innerText =  Stack.items.join(' -> ');
+            }
+            function peekStack() {
+                alert('Top of stack is: ' + Stack.peek());
+            }
+        </script>
+        <hr> -->
+    </body>
+</html>
