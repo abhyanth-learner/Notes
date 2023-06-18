@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js"></script>
+        <link rel="stylesheet" href="/main/jquery-ui-1.13.2.custom/jquery-ui.css" ></link>
+        <script src="jquery-ui.min.js"></script>
+        <style>
+            #div1
+            {
+                display: none;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#butt1").click(function(){
+                $("#div1").dialog({
+                    dialogClass: "no-close",
+                    buttons:{
+                            Yes :function(){
+                                $("#div1").dialog("close")},
+                            No:function(){
+                                $("#div1").dialog("close")}
+                },
+                    title:"Attention!"    
+                        
+                        
+                        
+                    })})
+                    
+
+                })
+            
+
+        </script>
+    </head>
+    <body>
+        <h3>The dialog</h3>
+        <button id="butt1">Click me!</button>
+        <div id="div1">
+            
+            <img src="kitchen.jpg" width="60%" alig="middle" height="60%"  alt=""><br>
+            are you sure you want to do this?
+        </div>
+
+    </body>
+</html>

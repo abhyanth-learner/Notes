@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js">
+
+        </script>
+        <script>
+            $(document).ready(function(){
+                
+                $("a").each(function(index,element){
+                    switch(index){
+                        case 0:element.href="http://www.google.com/"
+                            break;
+                        case 1:element.href="http://www.gmail.com/"
+                            break;
+                        case 2:element.href="http://www.makemytrip.com/"
+                            break;
+                    }
+
+                })
+            })
+
+        </script>
+
+    </head>
+    <body>
+        <a href="">1</a>
+        <a href="">2</a>
+        <a href="">3</a>
+        
+
+    </body>
+</html>

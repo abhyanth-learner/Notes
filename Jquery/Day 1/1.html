@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>email</title>
+        <script src="jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#button").click(function(){
+                    var str=$("#email").val();
+                   
+                    $("div").text(str)
+                })
+            })
+        </script>
+
+    </head>
+    <body>
+        email adress:-
+        <input id="email" type="email" placeholder="enter your email">
+        <br><br>
+        <div>
+
+        </div>
+        <br><br>
+        <button id="button">submit</button>
+    </body>
+</html>

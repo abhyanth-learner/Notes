@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js"></script>
+        <link rel="stylesheet" href="/main/jquery-ui-1.13.2.custom/jquery-ui.css" ></link>
+        <script src="/main/jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("div").fadeOut()
+                $("button").click(function(){
+                //$("div").fadeIn(3000)
+                //$("div").slideDown(3000)
+                $("div").toggle()
+                })
+            })
+
+        </script>
+    </head>
+    <body>
+        <button id="fadebutt">Fade In</button>
+        <div>
+        I am a hidden secret
+        
+        </div>
+        
+    </body>
+</html>

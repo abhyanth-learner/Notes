@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>button disable</title>
+        <script src="/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").prop('disabled',true)
+                $("#txt").change(function(){ 
+                    var str=$(this).val()
+                    if(str=="")
+                    {
+                    $("#btn").prop('disabled',true)
+                    }
+                    else{
+                    $("#btn").prop('disabled',false)
+                    }
+               
+                })
+              
+            })
+        </script>
+    </head>
+    <body>
+        <input type="text" id="txt">
+        <br><br>
+        <button id="btn">click</button>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>styling</title>
+        <script src="jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    $("textarea").css("border","red 2px solid")
+                })
+            })
+
+            $(document).ready(function(){
+                $("#btn2").click(function(){
+                    $("#div1").html("super its working whe you click the button")
+                })
+            })
+$(document).ready(function(){
+$("#btn3").click(function(){
+$("input,textarea").val("hai hello")
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+
+        </div><br>
+        <div id="div2">
+
+        </div>
+        <br><br>
+        text box 1:-
+        <input type="text">
+        <br><br>
+        text box2:-
+        <input type="text">
+        <br><br>
+        <textarea title="area1" ></textarea>
+        <br><br>
+        <textarea title="area1"></textarea>
+        <br><br>
+        <button id="btn1">apply style to text boxes</button>
+        <button id="btn2">apply style to first div</button>
+        <button id="btn3">Say hello</button>
+    </body>
+</html>

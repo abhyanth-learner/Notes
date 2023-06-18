@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="jquery-3.6.0.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#txt1").blur(function(){
+                    $(this).addClass("error")
+
+                })
+                $("#txt1").change(function(){
+                var vale=$("#txt1").val()
+                if(vale>10){
+                    $("#txt1").addClass("error")
+                }
+                else{
+                    $("#txt1").removeClass("error")
+                }
+            })
+
+            })
+
+        </script>
+        <style>
+            .error{
+                border: 2px solid blue;
+                background-color: green;
+            }
+
+        </style>
+    </head>
+    <body>
+        <input type="text" id="txt1">
+    </body>
+</html>

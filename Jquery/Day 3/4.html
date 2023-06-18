@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#but1").click(function(){
+                    var i=$("#uid").val()
+                        var titl=$("#tit").val()
+                        var complete=$("#comp").val()
+                        var str= JSON.stringify({
+                            userId:i,
+                            id:210,
+                            title:titl,
+                            completed:Boolean(complete)
+
+                        })
+                        console.log(str)
+                        
+
+
+                    $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/todos",
+                    data:str,
+                    accepts:"application/json",
+                    type:"POST" ,
+                    success:function(){
+                        alert("added")
+                        },
+                    error:function(){
+                        alert("error")
+
+                    }
+
+                })
+
+            })
+        })
+        </script>
+
+    </head>
+    <body>
+        userid:
+        <input type="text" id="uid">
+        title:
+        <input type="text" id="tit">
+        completed:
+        <input type="checkbox" id="comp">
+        <button id="but1">add</button>
+        
+
+        
+    </body>
+</html>

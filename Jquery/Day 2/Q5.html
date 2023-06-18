@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js"></script>
+        <link rel="stylesheet" href="/main/jquery-ui-1.13.2.custom/jquery-ui.css" ></link>
+        <script src="/main/jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#clicker").click(function(){
+                var paras=$("p")
+                paras.each(function(){
+                    if("I am a hidden secret" in $(this).text){
+                        $(this).slideUp()
+                    }
+                })
+            })
+        })
+
+        </script>
+    </head>
+    <body>
+        <button id="clicker">Click me to hide the hidden secrets!</button>
+<p class="secret">I am a hidden secret #1.</p>
+<p class="secret">I am hidden secret #2.</p>
+<p class="secret">I am hidden secret #2.</p>
+<p>I am <em>not</em> a hidden secret.</p>
+    </body>
+</html>

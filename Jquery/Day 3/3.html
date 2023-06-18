@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script src="/jquery-3.6.0.js"></script>
+        <script id="script1">
+            $(document).ready(function(){
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/todos",
+                    accepts:"application/json",
+                    success:function(data){
+                        var str=""
+                        var strr=""
+                        $(data).each(function(index,temp){
+                            var test=temp.completed
+                            if(test==true){
+                                str+='<option >'+temp.title+'</option>'
+                                console.log(str)
+                            
+                            $("#select1").html(str)}
+                            else{
+                                strr+='<li>'+temp.title+'</li>'
+                                $("#ol2").html(strr)
+                            }
+
+                        })
+
+                    },
+                    error:function(){
+                        alert("error")
+
+                    }
+
+                })
+
+            })
+        </script>
+
+    </head>
+    <body>
+        
+        <select id="select1">
+
+        </select>
+        <ol id="ol2" type="1">
+
+        </ol>
+
+        
+    </body>
+</html>
