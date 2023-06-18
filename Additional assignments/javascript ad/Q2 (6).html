@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <style>
+            h1,#buttons{
+                text-align: center;
+            }
+            #add,#remove,#toggle{
+                margin-left: 10px;
+            }
+            #textboxes{
+                text-align: center;
+            }
+            #div1,#div2,#div3,#div4{
+                margin:5px;
+                width: 200px;
+                height: 100px;
+                border: 2px solid black;
+            }
+            .class1{
+                font-size:30px;
+                background-color:#20c5b5;
+                color:white;
+                text-align:center;
+            }
+
+            .class2{
+                font-size:30px;
+                background-color:#FA8072;
+                color :white;
+                text-align :center;
+            }
+            .class3{
+                font-size:30px;
+                background-color :#7d8c9b;
+                color:white;
+                text-align:center;
+            }
+            .class4{
+                font-size:30px;
+                background-color:#7ba428;
+                color:white;
+                text-align:center;
+            }
+        </style>
+
+        <script>
+            function addClass(){
+                var dataAdd1 = document.getElementById("div1");
+                var dataAdd2 = document.getElementById("div2");
+                var dataAdd3 = document.getElementById("div3");
+                var dataAdd4 = document.getElementById("div4");
+                dataAdd1.classList.add("class1");
+                dataAdd2.classList.add("class2");
+                dataAdd3.classList.add("class3");
+                dataAdd4.classList.add("class4");
+            }
+            function removeClass(){
+                var dataAdd1 = document.getElementById("div1");
+                var dataAdd2 = document.getElementById("div2");
+                var dataAdd3 = document.getElementById("div3");
+                var dataAdd4 = document.getElementById("div4");
+                dataAdd1.classList.remove("class1");
+                dataAdd2.classList.remove("class2");
+                dataAdd3.classList.remove("class3");
+                dataAdd4.classList.remove("class4");
+            }
+            function toggleClass(){
+                var dataAdd1 = document.getElementById("div1");
+                var dataAdd2 = document.getElementById("div2");
+                var dataAdd3 = document.getElementById("div3");
+                var dataAdd4 = document.getElementById("div4");
+                dataAdd1.classList.toggle("class1");
+                dataAdd2.classList.toggle("class2");
+                dataAdd3.classList.toggle("class3");
+                dataAdd4.classList.toggle("class4");
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Pink Frag Event Organization</h1>
+        <div id="buttons">
+            <input type="button" value="Add" id="add" onclick="addClass()" >
+            <input type="button" value="Remove" id="remove" onclick="removeClass()">
+            <input type="button" value="Toggle" id="toggle" onclick="toggleClass()">
+        </div>
+        <br>
+        <br>
+        <div id="textboxes">
+            <table>
+                <tr>
+                    <td><div id="div1">Wedding Event</div></td>
+                    <td><div id="div2">Conferences</div></td>
+                    <td><div id="div3">Birthday Party</div></td>
+                    <td><div id="div4">Trade</div></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+

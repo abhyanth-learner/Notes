@@ -1,0 +1,9 @@
+<<<<<<< Updated upstream
+this was added from the branch
+=======
+<<<<<<< Updated upstream
+stash example
+=======
+text added to stash
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

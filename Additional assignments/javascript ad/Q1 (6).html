@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>JS - Credit Card Validation</title>
+        <style>
+            #validation{
+                margin-left: 100px;
+            }
+            #success{
+                color: rgb(46, 234, 46);
+            }
+
+            #phoneNumber_Warning,#cardNumber_Warning{
+                color: red;
+            }
+        </style>
+
+        <script>
+            
+            function checkPhoneNumber(){
+                var p = document.getElementById("phoneNumber").value;
+            
+                if(isNaN(p)){
+                    document.getElementById("phoneNumber_Warning").innerHTML="phone number must contain digits only";
+                }
+                else if (p.length!=10){
+                    document.getElementById("phoneNumber_Warning").innerHTML="phone number must contain 10 digits";
+                }
+                else if (p.length==10){
+                    document.getElementById("phoneNumber_Warning").innerHTML="";
+                }
+            }
+
+            function checkCardNumber(){
+                var c = document.getElementById("cardNumber").value;
+                
+                if(isNaN(c)){
+                    document.getElementById("cardNumber_Warning").innerHTML="Card number must contain digits only";
+                }
+                else if (c.length!=16){
+                    document.getElementById("cardNumber_Warning").innerHTML="Card number must contain 16 digits";
+                }
+                else if (c.length==16){
+                    document.getElementById("cardNumber_Warning").innerHTML="";
+                }
+            }
+
+            function validate(){
+                var p = document.getElementById("phoneNumber").value;
+                var c = document.getElementById("cardNumber").value;
+        
+                if(p.length==10 & c.length==16){
+                    document.getElementById("success").innerHTML = "Details stored in database";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Phone Number & Card Validation</h3>
+            Enter your Phone Number : <input type="text"  id="phoneNumber" onkeydown="checkPhoneNumber()" ><b><span id="phoneNumber_Warning"></span></b><br><br>
+            Enter your Card Number : <input type="text"  id="cardNumber" onkeydown="checkCardNumber()"><b><span id="cardNumber_Warning"></b></span><br><br>
+            <input type="button" value="Validate" id="validation" onclick="validate()"><br><br>
+        <b><div id="success"></div></b>
+
+    </body>
+</html>

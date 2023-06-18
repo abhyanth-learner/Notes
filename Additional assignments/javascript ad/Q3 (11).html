@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+            table,h1,#events{
+                margin-left: 80px;
+            }
+            #push,#pop,#display{
+                margin:5px;
+            }
+        </style>
+
+        <script>
+            var arrayElements = [];
+            function pushElements(){
+                var dataAdd = document.getElementById("input").value;
+                arrayElements.push(dataAdd);
+                document.getElementById("events").innerHTML = "Data Added Successfully";
+            }
+
+            function popElements(){
+                var dataRemove = document.getElementById("input").value;
+                arrayElements.pop(dataRemove);
+                document.getElementById("events").innerHTML = "Data Removed Successfully";
+            }
+            
+            function display(){
+                document.getElementById("events").innerHTML = "The Events in the array <br>";
+                for(let i=0;i<arrayElements.length;i++){
+                    document.getElementById("events").innerHTML += "<ul><li>"+ arrayElements[i]+"</li></ul>";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Events List</h1>
+        <div>
+            Enter the Events: <input type="text" id="input"><br><br>
+            <table>
+                <tr>
+                    <td><div><input type="button" value="Push" id="push" onclick="pushElements()"></div></td>
+                    <td><div><input type="button" value="Pop" id="pop" onclick="popElements()"></div></td>
+                    <td><div><input type="button" value="Display" id="display" onclick="display()"></div></td>
+                </tr>
+            </table>
+        </div><br><br>
+        <div id="events">
+
+        </div>
+    </body>
+</html>
