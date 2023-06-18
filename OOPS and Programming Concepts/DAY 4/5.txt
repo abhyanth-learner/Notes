@@ -1,0 +1,8 @@
+Start
+Initialize the  string[] variable que to CITIUSTECH
+set Vowelcount=0
+loop from i=0 till (length of que)-1
+        if (que[i]==A OR que[i]==E OR que[i]==I OR que[i]==O OR que[i]==U)
+                    Vowelcount=+1
+Print Vowelcount
+End

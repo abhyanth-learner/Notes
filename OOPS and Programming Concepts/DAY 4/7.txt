@@ -1,0 +1,22 @@
+QUESTION 2
+Start
+Input number
+flag=1
+ for i=2 to number/2 
+    if (number %i==0)
+        print its not a PRIME
+        break
+        flag=0
+if flag==1
+    print its a prime 
+END
+
+QUESTION 4
+Start
+Input number
+n=1
+while (n<=number)
+    fact=fact*n
+    n=n+1
+print n
+End

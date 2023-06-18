@@ -1,0 +1,5 @@
+STATIC VARIABLES IN MOBILE PHONE: The Inbuilt apps which comes with the phone are static because we cannot 
+		                  delete the apps
+DYNAMIC VARIABLES IN MOBILE PHONE: The installed apps in our phone can be compared to dynamic variables as 
+			           they can be modifies or deleted or updated
+    				    

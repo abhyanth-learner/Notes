@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Question 1</title>
+
+        
+    </head>
+    <body>
+        
+        <form id="main" >
+            <input type="text" placeholder="username" class="input1">
+            <input type="password" placeholder="password" class="input1">
+            <button type="button" id="input3" onclick="valid_check()">Sign In</button>
+        </form>
+        <h1 id="error" style="color: red;"></h1>
+        <script>
+            function valid_check()
+            {
+            val=document.getElementsByClassName("input1")
+            if(val[0].value=="citiustech" && val[1].value=="citiustech"){
+                wino=window.open("http://www.google.com","_new","menubar=no");          
+                
+            }
+            else{
+                document.getElementById("error").innerText="Error";
+
+            }
+            
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Callback Function Demo</title>
+    </head>
+
+    <body>
+        <h2>Callback Function Demo</h2>
+
+        <p id="result"></p>
+
+        <script>
+            function displayResult(result)
+            {
+                document.getElementById("result")
+                    .innerText="The Result is "+result
+            }
+
+            function sum(x,y)
+            {
+                let res=x+y;
+                displayResult(res);
+                //return x+y;
+            }
+
+            //In the below approach we are calling 2 functions to get the required
+            //result
+            // let res = sum(100,20);
+            // displayResult(res);
+
+            //In the below approach we cannot restrict 
+            //the sum to call the displayresult function
+            sum(190,99);
+        </script>
+    </body>
+</html>

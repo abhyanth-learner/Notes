@@ -1,0 +1,10 @@
+TELIVISION attributes:
+1.Type of display (if its led,lcd,oled,cathod ray)
+2.Brand of the tv (Sony,onida,lg)
+3.length of the display (32inch,36inch,42inch)
+4.color of the tv (black,blue)
+
+ABSTRACTION
+
+Only the final display is showed to us by the tv  
+The satellite connection to the tv or the internal operation that takes place to gives us the final display is not known by the user

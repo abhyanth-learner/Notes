@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Question 1</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            div {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                column-gap: 10px;
+                border: 5px solid aqua;
+                padding: 0px;
+                width: fit-content;
+                height: fit-content;
+                 float: top;
+                
+            }
+            div p{
+                   
+                 width: 100px;           
+                border: 5px solid black;
+                text-align: center;
+                font-size: xx-large;
+                background-color: gray;                
+                -webkit-border-radius: 10px;
+            
+            }
+            @media only screen and (max-width: 500px) {
+  p {
+    background-color: cyan;
+     grid-column: 1 /3;
+  }
+}
+        </style>
+    </head>
+    <body>
+        <div class="mini">
+        <p>A</p>
+        <p>B</p>
+        <p>C</p>
+        <p>D</p>
+        <p>E</p>
+        <p>F</p>
+        <p>G</p>
+        <p>H</p>
+        <p>I</p>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+ENCAPSULATION IN HOSPITAL
+
+Under one building all the functions like Patients data collection,Patients history,billing,diagnostic,medicine 
+prescription takes place which indicates encapsulation and Important data like patient details or
+payment detaills are not disclosed to anyones

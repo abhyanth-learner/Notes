@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>practice 4</title>
+
+    </head>
+    <body>
+        <input list="countries" name="box1" onchange="city_select()"><br><br>
+        <!-- <input list="cities" autocomplete="off" id="vis">  -->
+        
+        
+        <datalist id="countries" onselect="city_select()">
+        <option value="India"></option>
+        <option value="Australia"></option>
+        <option value="NewZealand"></option>
+        <option value="England"></option>
+        </datalist>
+        <br>
+        <datalist id="cities">
+            
+
+
+        </datalist>
+        <script>
+            function city_select()
+            {
+                val=document.getElementById("countries")
+                console.log(val.value)
+            }
+        </script>
+    </body>
+</html>

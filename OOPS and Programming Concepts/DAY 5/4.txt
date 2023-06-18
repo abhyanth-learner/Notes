@@ -1,0 +1,4 @@
+INHERITANCE IN BROADBAND CONNECTION
+
+When the router broadcasts the wifi signal the device connecting to it inherits the
+wifi signal from the mail router and as you connect multile devices multiple inheritence takes place 

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Question 2</title>
+
+        
+    </head>
+    <body>
+        
+        <form id="main" >
+            <input type="text" placeholder="username" class="input1" onkeydown="user_check(event)">
+            <input type="password" placeholder="password" class="input1" onkeydown="pass_check(event)">
+            <button type="button" id="input3" onclick="valid_check()" >Sign In</button>
+        </form>
+        <h1 id="error" style="color: red;"></h1>
+        <script>
+           
+            val=document.getElementsByClassName("input1")
+            z=val[1].toString()
+            z2=val[0].toString() 
+            button=document.getElementById("input3")
+            if(z.isEmpty() || z2.isEmpty())
+            {
+                button.disabled=true
+            }
+            else{
+                button.disabled=false
+            }
+            
+            
+
+            function user_check(event)
+            {                             
+                var name = event.key;
+                if(name=="Tab"){
+                    val=document.getElementsByClassName("input1")
+                    z=val[0].toString()
+                    space=(z.indexOf(' ')>=0)
+                    if(val[0].value!="c" && space){
+                        document.getElementById("error").innerText="Error in username";  
+                         }
+                                }
+            }
+            function pass_check(event)
+            {
+                var name = event.key;
+                if(name=="Tab"){
+                    val=document.getElementsByClassName("input1")
+                    z=val[1].toString()
+                    space=(z.indexOf(' ')>=0)
+                    if(val[1].value!="c"){
+                        document.getElementById("error").innerText="Error in password";  
+                         }
+                                }
+            }
+            function valid_check()
+
+            {
+            val=document.getElementsByClassName("input1")
+            z=val[1].toString()
+            z2=val[0].toString()
+            space=((z.indexOf(' ')>=0) && (z2.indexOf(' ')>=0))
+            if(val[0].value=="c" && val[1].value=="c" && space){
+                wino=window.open("http://www.google.com","_new","menubar=no");          
+                
+            }
+            else{
+                document.getElementById("error").innerText="Error";
+                
+
+            }
+            
+            }
+
+  // Alert the key name and key code on keydown
+
+        </script>
+    </body>
+</html>

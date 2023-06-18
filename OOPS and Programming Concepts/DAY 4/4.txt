@@ -1,0 +1,7 @@
+Step 1: Declare Variable n, fact, i
+Step 2: Read number from User
+Step 3: Initialize Variable fact=1 and i=1
+Step 4: Repeat Until i<=number
+            5.1 fact=fact*i
+            5.2 i=i+1
+Step 5: Print fact

@@ -1,0 +1,10 @@
+POLYMORPHISM IN TRAFFIC SIGNAL
+
+Traffic sign acts as a stop sign when the light is red--->This is the fist form
+
+Traffic sign as as a get ready sign when the light is orange--->This is the second form
+
+Traffic sign acts as a go sign when the sign is green --->This is the third form
+
+So There are 3 forms to the same traffic signal depending upon color of the light 
+

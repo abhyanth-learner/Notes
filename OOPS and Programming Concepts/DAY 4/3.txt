@@ -1,0 +1,12 @@
+Start
+INPUT A NUMBER
+INPUT Number  
+Reverse = 0 
+WHILE(Number > 0)THEN    
+    Reminder = Number %10    
+    Reverse = (Reverse *10) + Reminder    
+    Number = Number // 10 
+END WHILE   
+    
+OUTPUT THE VARIABLE REVERSE
+End

@@ -1,0 +1,80 @@
+<html>
+    <head>
+         <style>
+            #vis{
+                visibility: hidden;
+            }
+            #cities{
+                visibility: hidden;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        
+            <input list="countries" name="box1" onchange="newlist()"><br><br>
+            <input list="cities" autocomplete="off" id="vis"> 
+            
+            
+            <datalist id="countries" onselect="newlist()">
+
+            <option value="India"></option>
+            <option value="Australia"></option>
+            <option value="NewZealand"></option>
+            <option value="England"></option>
+
+            </datalist>
+            <br>
+            <datalist id="cities">
+                
+
+
+            </datalist>
+
+        
+        <script>
+            
+
+            function newlist(){
+                
+                
+
+                var cities={
+            India:["bangalore","Chennai","hyderabad","pune"],
+            Australia:["melborne","adelaide","canberra","sydney"],
+            NewZealand:["port blair","portland","mount mahanghai"],
+            England:["London","bhirmingham","edgebaston"]
+            }
+                
+
+                document.getElementById("vis").style.visibility="visible"
+                var temp=document.getElementsByName("box1")[0]
+                var val=(temp.value) 
+                citiess=["India","Australia","NewZealand","England"]
+                var index=citiess.indexOf(val)
+
+                switch(index){
+                    case 0: vall=cities.India;break
+
+                    case 1: vall=cities.Australia; break
+                    case 2: vall=cities.NewZealand;break;
+                    case 3: vall=cities.England;     break  
+                }
+                
+                
+                
+                document.getElementById("cities").innerHTML=''
+                for(i=0;i<4;i++){
+                    document.getElementById("cities").innerHTML+='<option value="'+vall[i]+'"> </option>'
+                }
+                
+                
+
+            }
+        </script>
+    </body>
+    
+
+
+</html>

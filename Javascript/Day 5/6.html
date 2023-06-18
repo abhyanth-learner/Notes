@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+         function loadfile(){
+            var xhttp = new XMLHttpRequest();
+            var userId = document.getElementById("txtid").value;
+            var url = "https://jsonplaceholder.typicode.com/posts"; 
+            xhttp.open("get", url, true);
+            xhttp.send();
+
+            xhttp.onreadystatechange = function() {
+             
+              
+             if (this.readyState == 4 && this.status == 200) {
+                 var response = JSON.parse(this.responseText);
+                console.log(response);
+                for(var i = 0; i< response.length; i++){
+                 if(userId == response[i].id){
+                    delete response[i];
+                 }
+                }
+                 
+                 
+            
+             }
+          };
+
+         }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="txtid">
+
+        <button onclick="loadfile()">GetDetails</button>
+
+    </body>
+</html>

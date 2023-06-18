@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <img src="/OIP.jpg" alt="demo image" width="200px" height="200px" id="image">
+
+        <script>
+            document.getElementById("image").addEventListener("mouseover",increase)
+            document.getElementById("image").addEventListener("mouseout",decrease)
+
+
+            function increase(){
+                document.getElementById("image").style.width="800px"
+                document.getElementById("image").style.height="800px"
+                
+            }
+            function decrease(){
+                document.getElementById("image").style.width="200px"
+                document.getElementById("image").style.height="200px"
+                
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function loadfile(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("get", "json/1.json", true);
+            xhttp.send();
+             xhttp.onreadystatechange = function() {
+              var tbody = document.getElementById("demo").querySelector("tbody");
+              tbody.innerHTML = "";
+            if (this.readyState == 4 && this.status == 200) {
+       
+              JSON.parse(this.responseText).forEach(function(data, index){
+                tbody.innerHTML += "<tr><td>"+ data.id + "</td><td>" + data.name + "</td><td>"+ data.price +"</td></tr>";
+              });
+            }
+         };
+       
+        
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="loadfile()">loadData</button>
+     <table id="demo">
+       <thead>
+        <tr>
+            <td> id</td>
+            <td>name</td>
+            <td>price</td>
+        </tr>
+       </thead>
+       <tbody >
+
+       </tbody>
+     </table>
+    </body>
+</html>

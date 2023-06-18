@@ -1,0 +1,9 @@
+CLASS PATIENT
+
+Instance Methoods:
+
+1.EnterDetails():where the patient  can enter all his details and personal health history
+
+2.SheduleAppointment(): Where a patient can shedue appointment when required
+
+3.History():Where patients can access their previous visits and check for medicine prescription
