@@ -1,0 +1,56 @@
+What is Agile Methodology?​
+
+Agile methodology is a practice which promotes continues interaction of development and testing during the SDLC process of any project. In the Agile method, the entire project is divided into small incremental builds. All these builds are provided in iterations, and each iteration lasts from one to three weeks.​
+
+
+
+
+​Roles Of Agile:?
+
+Scrum Master​
+
+The Scrum Master is a team leader and facility provider who helps the team member to follow agile practices, so that the team member meets their commitments and customers requirements. The scrum master plays the following responsibilities:​
+
+They enable the close co-operation between all the roles and functions.​
+
+They remove all the blocks which occur.​
+
+They safeguard the team from any disturbances.​
+
+They work with the organization to track the progress and processes of the company.​
+
+​Product Owner:​
+
+The Product Owner is one who runs the product from a business perspective. The Product Owner plays the following responsibilities:​
+
+He defines the requirements and prioritizes their values.​
+
+He sets the release date and contents.​
+
+He takes an active role in iteration and releasing planning meetings.​
+
+He ensures that the team is working on the most valued requirement.​
+
+He represents the voice of the customer.
+
+
+
+Phases Of Agile Model:​?
+
+Requirements gathering​
+
+Design the requirements​
+
+Construction / iteration​
+
+Testing / Quality assurance​
+
+Deployment​
+
+Feedback​
+
+​
+
+Agile Workflow:?
+
+   

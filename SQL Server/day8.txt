@@ -1,0 +1,16 @@
+--XML data (SQL Server)
+
+
+--SQL Server provides a powerful platform for developing rich applications for semi-structured data management. 
+--Support for XML is integrated into all the components in SQL Server in the following ways:
+--The xml data type. XML values can be stored natively in an xml data type column that can be typed according to a 
+--collection of XML schemas, or left untyped. You can index the XML column.
+--The ability to specify an XQuery query against XML data stored in columns and variables of the xml type.
+
+
+
+--Enhancements to OPENROWSET to allow bulk loading of XML data.
+--The FOR XML clause, to retrieve relational data in XML format.
+--The OPENXML function, to retrieve XML data in relational format.
+--Starting with SQL Server 2022 (16.x), XML compression provides a method 
+--to compress off-row XML data for both XML columns and indexes, improving capacity requirements. For more information, see CREATE TABLE (Transact-SQL) and CREATE INDEX (Transact-SQL).

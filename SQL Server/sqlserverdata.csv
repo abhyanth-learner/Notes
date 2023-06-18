@@ -1,0 +1,21 @@
+﻿empid,empname,age,dob,email,nri,photo,managerid,deptid
+1223,Mr. Steve,46,1976-01-21,steve@gmail.com,0,,,123
+3421,Mr. Joe,34,1988-02-11,joe@gmail.com,0,,,323
+1988,Ms. Mary,52,1970-10-10,mary@yahoo.com,1,,1223,123
+9011,Mr. Roger,49,1973-12-06,roger@gmail.com,0,,,799
+4988,Mr. Steve,42,1980-04-12,steve1@yahoo.com,1,,,822
+5600,Ms. Margret,38,1984-11-23,margret@gmail.com,0,,,456
+5667,Mr. Kevin,44,1978-01-02,kevin@yahoo.com,1,,9011,799
+1776,Mr. Vency,33,1989-12-25,vency@gmail.com,0,,9011,799
+9044,Mr. Chris,52,1970-08-16,chris@gmail.com,0,,5600,456
+3112,Mr. Roger,44,1978-09-09,roger@yahoo.com,1,,4988,822
+8077,Mr. Edgar,38,1984-12-29,edgar@yahoo.com,0,,1223,123
+1000,Mr. Danny,33,1989-12-13,danny@gmail.com,0,,4988,822
+4511,Mr. Bruce,52,1970-07-19,bruce@hotmail.com,0,,3421,323
+7666,Ms. Laura,51,1971-12-12,laura@yahoo.com,0,,3421,323
+9020,Mr. Nathan,32,1990-06-14,nathan@yahoo.com,1,,5600,456
+1010,Mr. Tim,30,1992-11-08,tim@gmail.com,0,,5600,456
+6543,Mr. Graham,35,1987-12-07,graham@gmail.com,0,,4988,822
+5050,Mr. Ricky,32,1990-01-02,ricky@hotmail.com,0,,9011,799
+2222,Mr. Craig,38,1984-05-14,craig@yahoo.com,1,,5600,456
+2133,Mr. Chris,30,1992-09-27,chris1@yahoo.com,0,,1223,123
