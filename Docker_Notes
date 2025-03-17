@@ -1,0 +1,428 @@
+23-10-2023
+
+Intro
+	When ever a system boots the os is loaded into the ram
+	Ram is divided into kernal space(os is loaded) and User space
+	
+Docker
+	Advantages
+			1.One OS-->faster app dev
+			2.To spin up apps very quickly
+			3.Scalability
+			4.Self healing
+			5.low spin up time
+			6.Zero downtime
+
+Docker is a std for linux containers
+Container is an isolated runtime inside of linux
+A container provides a private machine like space in linux	
+Container will run under any linux kernal
+
+Container engine will need one OS and this can be used for multiple apps unlike VM which will have n OS for N apps
+
+Docket Terms
+	1.Docker Image representation of docker container
+
+	2.Docket container std runtime of docker
+
+	3.Docker engine code that manages docker 
+
+
+Docker Architecture
+-------------------
+	client-->used to fire the commands
+	docker daemon-->we talk to this to execute commands
+	Registry-->Used to store docker images
+
+
+shell-->the place where we enter commans and shell just checks if the command is there or not
+
+kernal-->executs the commands 
+
+docker-daemon executes the commands
+
+Image-->class file
+container-->instance of that class
+
+Images are immutable the files inside the image cannot be changed
+
+images are built in layers and each layers have an hash key
+In case the layers are chnaged the sha256 key also will be changed
+
+# demotes root user
+
+Docker file is a simple text file which consist a list of command s which helps you to build a image
+
+docker file   ------>  docker image build    -------> docker image
+
+
+suppose u have alredy bulits an image if once again you build the image then it will used the cache and download the files only if the hash is chnaged els it will jus use the existing
+ 
+ once we have edited the docker file then when we build it will not be able to use the cache because the # is chnaged 
+
+docker container run alpine-image date --->this will override the cmd command and this can be avoided by using entry point
+
+Syntax
+------
+	comments
+	commands
+	arguments
+	
+Note:
+	docker image starts with a base layers
+	image consist of readonly format
+	
+Docker Instruction
+	1.FROM -->first non-comment instruction in the dockerfile
+	2.MAINTAINER-->It allows us to set the suthor of the generated images
+	3.RUN-->majorly it is used to run linux shell commands
+	4.CMD-->main purpose is to provide defaults for executing a container
+	5.LABEL-->meta data
+	6.EXPOSE-->informs docker that the container listens on the specified port at runtime
+	7.ENV-->it allows to set the environment variable (key) the value<value>
+	8.ADD -->copies new files and directories from source to the filesystem of the image at the path of	destination
+	9.ENTRYPOINT-->Allows to configure a container that run as an executable
+
+commands
+	1.sudo-i-->makes us admin(super user)
+
+	2.who am I -->the username
+
+	3.apt-get update -->update linux
+
+	4.apt install docker.io -y-->install docker -y is added to make default yes for all the questions
+
+	5.docker image pull <<NAME OF THE IMAGE>>-->download the docker file
+	
+	6.docker image ls-->list of images
+	
+	7.docker container run  <<IMAGE NAME>>-->runs the container and gets the instance called the image
+	
+	8.docker container ls -a -->gives a list of all stopped containers
+	
+	9.docker container prune-->used to delete all the stopped container
+	
+	10.docker container run -d -e MYSQL_ROOT_PASSWORD=<<password>> <<IMAGE NAME>>-->-d makes the daemon run in the background -e is ued to specify environment variables
+	
+	11.docker exec-it <<first 2 characters of image id>> bash-->executes the image -it to make it interactive and bash to open bash to execute commands
+	
+	12.vi mycmd -->we can add to this a list of command which needs to be executed so next time when we run mycmd all the command in this list runs
+	
+	13.chmod +x <<NAME OF CUSTOM COMMAND LIST>>-->makes the mycmd execuatable
+	
+docker {command} {sub-command}
+
+CREATE A DOCKER FILE
+---------------------
+
+	1.vi <<Filename>>-->file name is Dockerfile
+		FROM ubuntu
+		CMD["echo","Hello World"]
+	2.docker image build -t hello-image .  -->-t is for tag name and image name 
+	
+	3.docker container run hello-image -->runs the image that we just build and prints Hello World as that was the commands we have given
+
+  
+CREATE A DOCKER FILE WITH GIT AND TREE
+--------------------------------------
+	1. vi DockerFile1
+		FROM ubuntu
+		MAINTAINER "Abhyanth abhyanth0809@gmail.com"
+		LABEL description="Simple ubuntu image with tree and git..."
+		RUN apt-get update
+		RUN apt-get install tree
+		RUN apt-get install gi -y               OR RUN apt-get update && apt-get install tree &&apt-get install gi -y -->CAN BE DONE IN ONE LINE
+		CMD ["date"]
+		
+		
+		:wq
+	2.docker image build -f Dockerfile1 -t ubuntu-image .-->-f is used to tell which file to run 
+	3.docker image ls
+	4.docker container run -it ubuntu-image bash -->executes the container and then opens the bash of the container without bash it wont go into the bash of the image
+	INSIDE THE BASH OF THE Container
+	--------------------------------
+	5.tree
+	6.exit -->to exit the bash of the image
+	EDIT THIS DOCKER FILE
+	---------------------
+		vi DockerFile1
+		edit build again
+		
+CREATE A DOCKER FILE WITH ALPINE AND CUSTOM COMMAND FILE
+--------------------------------------
+		vi DockerFile2
+			FROM alpine
+			COPY mycmd.sh ./
+			CMD ["./mycmd.sh"]-->my cmd exist in the local machine but not in that container so we need to add this to the container
+			vi mycmd.sh	
+				#!/bin/sh -->this will tell the conatiner to use this shell to execute the below commands
+				ls
+				ps
+				date
+				cal
+		docker image build -t alpine-image -f dockerfile2
+		docker container run alpine-image
+	
+CREATE A DOCKER FILE WITH WORKDIR
+---------------------------------
+
+	cp Dockerfile2 Dockerfile3
+	vi Dockerfile3
+		FROM alpine
+		WORKDIR /source  ---->creates a directors with the name source
+			COPY mycmd.sh /source
+			CMD ["./mycmd.sh"]
+	docker image build -t alpine-new-image -f dockerfile2
+	docker conatiner run -d alpine-new-image sleep 200--->makes the container sleep for 200secs then starts it
+	docker container exec -it eb /bin/sh
+	docker container stop eb-->have to stop any container before pruning it 
+	docker container prune
+
+
+CREATE A DOCKER FILE WITH NGINX
+-------------------------------
+	1.vi DockerfileNginx
+		FROM ubuntu
+		MAINTAINER "Abhyanth abhyanth0809@gmail.com"
+		LABEL description="Simple ubuntu image with nginx"
+		RUN apt-get update && apt-get install nginx -y
+		EXPOSE 80
+		ENTRYPOINT ["/usr/sbin/nginx","-g","daemon off;"]
+
+	2.docker image build -t nginx-image -f DockerfileNginx
+	3.docker conatiner run -d nginx-image
+now when we open http://localhost/80 it wont open because in the ec2 instance we have not allowed http and htts traffic so we need to
+enable that by editing the security groups
+container will ahev an ip addresss which will keep changing when ever the container goes down and is run again 
+	4.docker containe ls -a
+	
+	5.docker container rm -f <<id of the conatiner>>-->stops and removes the container forcefullly
+	
+	6.docker conatiner run -d -p 80:80 nginx-image-->if any request come through port 80 please fwd it to container port 80
+then check http:/<<IP ADDRES OF THE EC2 INSTANCE>>:80
+now the default nginx will be displayed but if we want to chnage the default page then-->
+	7.docker container exec -it <<id>> bash
+		ls /var/www/html/
+		car /var/www/html/<<HTML FILE NAME>>
+	exit
+	8.vi index.html
+		simple html page
+	9.vi DockerfileNginx
+		FROM ubuntu
+		MAINTAINER "Abhyanth abhyanth0809@gmail.com"
+		LABEL description="Simple ubuntu image with nginx"
+		RUN apt-get update && apt-get install nginx -y
+		COPY index.html /var/www/html
+		EXPOSE 80
+		ENTRYPOINT ["/usr/sbin/nginx","-g","daemon off;"]
+	
+	10.docker image build -t nginx-image -f DockerfileNginx
+	
+	11.docker image ls
+	
+	12.docker container run -d -p 80:80 nginx-image
+	
+
+
+
+BEST PRACTICES
+--------------
+	1.use official image with mininal services required by your application
+		uppose u need only java then instead of installing ubuntu and then doing apt-install java we can just install od with java alredy installed
+	2.Always use fixed versions
+		so that version remains constant and do chnage each time u build the container
+		
+	3.Do not include unnecessary files from your project into the container.This will reduce image size
+	
+	4.Do not use root user or privileged user to run the container application
+
+	5.order of docker commands	
+		alwause go from least frequently used to most frequently used 
+		
+		
+
+COMMINUCATION BETWEEN TWO CONTAINERS
+------------------------------------
+	1.drag and drop shop.jar to mobaxterm
+	
+	2.cp /home/ubuntushop.jar .
+	
+	3.vi DockerfileShop
+	
+		FROM openjdk:8
+		MAINTAINER "Abhyanth abhyanth0809@gmail.com"
+		LABEL description="java spring application which displays product information"
+		WORKDIR /spring-app
+		COPY shop.jar /spring-app
+		CMD ["java","-jar","shop.jar"]
+	4.docker image build -t spring-image -f DockerfileShop
+	
+	5.docker image ls
+	
+	6.docker container run -d -p 8080:9090 spring-image
+	
+	7.docker container  ls -a
+	
+	8.get the ip from ec2 instance and enter in the url
+	
+	now the url wont display anything because the java image will want to talk to sql but a sql Db does not exist so we need to create a sql Db
+
+	9.docker container logs <<container Id>>
+	
+	10.docker conatainer prune
+	
+	11.docker image pull mysql
+	
+	12.docker container run -d -e MYSQL_ROOT_PASSWORD=root --name=mysql_container
+	
+	13.docker container exec -it <<image id>> bash
+		mysql -u root -p
+			root
+		create database shop;
+		use shop
+		create table Product(
+			productNo int primary key
+			price float not null
+			stock int not null);
+		insert into product values(101,450,10);
+		insert into product values(102,45,22);
+		commit;
+		quit
+	14.docker container ls
+	
+	15.docker conatainer run -d -p 8080:9090 --link=mysql_container -e MYSQL_HOST=mysql_container shop-image--->the link is telling the the shop image to link itself with mysql_container and we are also giving a host name 
+	
+	15 docker container ls -a 
+	
+	now the url will display the product
+	
+	
+STORAGE DRIVERS
+---------------
+
+when we use the same from for multiple containers we have hvve a common from and then share it will all the containers this is the difference
+for vm and containers instead of haveing different os from different apps we can have a common os for all the apps and share it amongst them
+
+
+	docker info
+docker uses overleaf as a storage driver and its ahs 3 layers lower,upper and overlay lower layer is read only the upper layer is for any
+read/write overlay helps us to handle data this layered approch helps us to share amoong multiple layers
+
+	ls /var/lib/docker/
+	ls /var/lib/docker/overlay2/
+	
+previously when we had created a db inside the sql container once we remove the container the dat goes along with it 
+
+
+	docker image inspect  mysql:latest
+
+after hitting this command find /var/lib/mysql this is where we can store data which will not be removed even after the container is removed
+
+
+CREATE CONTAINER AND USE VOLUMES TO STORE DATA
+-----------------------------------------------
+	docker container run -d -e MYSQL_ROOT_PASSWORD=root -v mysql_volume:/var/lib/mysql mysql-->thi scommand will implicitly create a folder like in that path 
+																								which will store our data even after removing the container
+	
+	docker container exec -it <<id>> bash
+		mysql -u root -p
+			root
+		create database shop;
+		use shop
+		create table Product(
+			productNo int primary key
+			price float not null
+			stock int not null);
+		insert into product values(101,450,10);
+		insert into product values(102,45,22);
+		commit;
+		quit
+	ls /var/lib/docker/volumes/_data/shop/
+	
+now remove the above container create one more and the go in the bash of sql and hit show databases it will show the shop DB that we created earlier
+
+	docker volume create shop_volume
+	
+	docker volume ls
+	
+	
+	
+
+
+DOCKER NETWORKING
+-----------------
+	
+	docker network create --driver bridge my_network1
+	
+	docker container run -d --net my_network1 --name c1 busybox sleep 2000
+	
+	docker container run -d --net my_network1 --name c2 busybox sleep 2000
+	
+	docker container run -d --net my_network --name c3 busybox sleep 2000
+	
+	docker conatainer exec -it  c1 ash
+		ifconfig
+			WE GET THE IP ADDRESS OF THIS PARTICULAR CONTAINER(172.18.0.2)
+		ping 172.18.0.3
+		
+	docker conatainer exec -it  c3 ash
+		ifconfig
+			NOW IF YOU PING THE IP OF MY_NETWORK1 THEN WE WONT BE ABLE TO PING AS WE HAVE TO ALLOW 2 NETWORKING SETS TO CONNECT
+			
+	docker network connect my_network1 c3
+	
+	docker conatainer exec -it  c3 ash
+		NOW IF YOU PING TO IP OF C1 OR C2 IT WILL BE ABLE TO CONNECT 
+	
+CREATE AND RUN A SERVICE
+------------------------	
+		
+1.vi docker-compose.yaml
+	version:"3"
+	
+	services:
+			db:
+				image:sql
+				container_name:mysql_container
+				volumes:
+						-mysql_volume:/var/lib/mysql
+				networks:
+						-my_netowork
+				environment:
+						-MYSQL_ROOT_PASSWORD=root
+						-MYSQL_DATABASE=shop
+	
+			backend:
+				image:shop-image
+				container_name:spring_app
+				networks:
+						-my_network
+				environment:
+						-MYSQL_HOSt=mysql_container
+				depends_on:
+							db
+			
+				ports:
+						"8080":"9090"
+	volumes:
+			mysql_volume
+	networks:
+			my_network
+	
+	
+THE ABOVE CREATES 2 SERVICES ONE IS DB AND ONE IS BACKED 
+
+2.apt install docker-compose -y
+
+3.copy th jar file to the folder of mobaxterm
+
+4.cp /home/ubuntu/DockerfileShop .
+
+5.co /home/ubuntu/shop.jar
+
+6.	docker image build -t shop-image -f DockerfileShop .
+
+
+54:38
+	
+	
